@@ -33,7 +33,7 @@ How to install
 How to use
 =================
 
-* Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
+Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
     
     INSTALLED_APPS = [
         'some apps go here',
@@ -43,7 +43,7 @@ How to use
         'some other apps can go here',
     ]
  
-* To include GeoIP related info in the session:
+To include GeoIP related info in the session:
     
     Include geoaware middleware in your MIDDLEWARE_CLASSES after the session middleware.
     
@@ -58,7 +58,7 @@ How to use
     The GeoIP related info would be available in request.session['geo_info']
 
 
-* To include GeoIP related info in the context:
+To include GeoIP related info in the context:
     
     Include geoware context processor in your TEMPLATE_CONTEXT_PROCESSORS after 'django.core.context_processors.request'.
     
@@ -73,7 +73,7 @@ How to use
 
     The GeoIP related info would be available in your context as geo_info.
 
-* To access the GeoIP data:
+To access the GeoIP data:
 
    geo_info is a dictionary that includes the following:
    geo_info = {
@@ -91,6 +91,7 @@ How to use
         'country_code': '',
         'country_name': '',
     }
+    
     If some fields are not available they are left unpopulated.
 
 
