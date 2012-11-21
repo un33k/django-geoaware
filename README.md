@@ -75,7 +75,7 @@ To include GeoIP related info in the context:
 
 To access the GeoIP data:
 
-   geo_info is a dictionary that includes the following:
+   ``geo_info is a dictionary that includes the following:
    geo_info = {
         'fqdn_or_ip': '',
         'city': '', 
@@ -92,7 +92,7 @@ To access the GeoIP data:
         'country_name': '',
     }
     
-    If some fields are not available they are left unpopulated.
+    If some fields are not available they are left unpopulated.``
 
 
 Running the tests
