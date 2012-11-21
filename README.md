@@ -34,9 +34,9 @@ How to use
 =================
 
 
-Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
+Include 'geoware' in your `INSTALLED_APPS` somewhere after `'django.contrib.gis'`.
 
-    ```python
+    `python
     INSTALLED_APPS = [
         'some apps go here',
         'django.contrib.gis',
@@ -44,13 +44,13 @@ Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
         'geoaware',
         'some other apps can go here',
     ]
-    ```
+    `
 
 To include GeoIP related info in the session:
     
-    Include geoaware middleware in your MIDDLEWARE_CLASSES after the session middleware.
+    Include geoaware middleware in your `MIDDLEWARE_CLASSES` after the session middleware.
     
-    ```python
+    `
     MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,16 +58,16 @@ To include GeoIP related info in the session:
     'geoaware.middleware.GeoSessionMiddleware',
     'some more middleware can go here',
     ] 
-    ```
+    `
 
     The GeoIP related info would be available in request.session['geo_info']
 
 
 To include GeoIP related info in the context:
     
-    Include geoware context processor in your TEMPLATE_CONTEXT_PROCESSORS after 'django.core.context_processors.request'.
+    Include geoware context processor in your `TEMPLATE_CONTEXT_PROCESSORS` after `'django.core.context_processors.request'`.
     
-    ```python
+    `
     TEMPLATE_CONTEXT_PROCESSORS = [
         'django.contrib.auth.context_processors.auth',
         'some context processor can go here',
@@ -76,7 +76,7 @@ To include GeoIP related info in the context:
         'geoaware.context_processors.geoaware',
         'some context processor can go here',
     ]
-    ```
+    `
     The GeoIP related info would be available in your context as geo_info.
 
 
@@ -84,7 +84,7 @@ To access the GeoIP data:
 
    Note that geo_info is a dictionary that includes the following:
  
-   ```python
+   `
    geo_info = {
         'fqdn_or_ip': '',
         'city': '', 
@@ -100,7 +100,7 @@ To access the GeoIP data:
         'country_code': '',
         'country_name': '',
     }
-    ```
+    `
 
     If some fields are not available they are left unpopulated.
 
