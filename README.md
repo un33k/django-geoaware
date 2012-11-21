@@ -36,7 +36,7 @@ How to use
 
 Include 'geoware' in your `INSTALLED_APPS` somewhere after `'django.contrib.gis'`.
 
-    `
+```python
     INSTALLED_APPS = [
         'some apps go here',
         'django.contrib.gis',
@@ -44,7 +44,7 @@ Include 'geoware' in your `INSTALLED_APPS` somewhere after `'django.contrib.gis'
         'geoaware',
         'some other apps can go here',
     ]
-    `
+```
 
 To include GeoIP related info in the session:
     
