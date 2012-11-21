@@ -99,12 +99,35 @@ To access the GeoIP data:
    # If some fields are not available they are left unpopulated.
    ```
 
+To access the GoeIP data via template tags:
+
+The following filters are available for extracting specific GeoIP data in the templates.
+Requirement:  ``django.core.context_processors.request`` must be present in your `TEMPLATE_CONTEXT_PROCESSORS`.
+
+    ```html
+    {% load geoware_tags %}
+    {{ request|geo_country_name }}
+    {{ request|geo_country_code }}
+    {{ request|geo_country_code3 }}
+    {{ request|geo_city }}
+    {{ request|geo_latitude }}
+    {{ request|geo_longitude }}
+    {{ request|geo_postal_code }}
+    {{ request|geo_region }}
+    {{ request|geo_dma_code }}
+    {{ request|geo_area_code }}
+    {{ request|geo_fqdn_or_ip }}
+    {{ request|geo_charset }}
+    ```
+
 Running the tests
 =================
 
 To run the tests against the current environment:
 
     python manage.py test geoaware # ToDo
+
+    Note: if you are running on localhost in DEBUG mode, then you can you can add to your settings.py `GEOAWARE_DEBUG_DOMAIN_OR_IP = 'google.com'` OR `GEOAWARE_DEBUG_DOMAIN_OR_IP = 'some valid public ip'`. This is for testing purposes ONLY.
 
 
 Changelog

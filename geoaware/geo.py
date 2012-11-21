@@ -22,7 +22,7 @@ def get_ip_address(request):
     return ip_addr
 
 
-def get_geo_info(fqdn_or_ip):
+def get_geo_info(request):
     """ Get GeoInfo - Relies on Django to raise exception on improper configuration  """
 
     geo_info = {
@@ -40,8 +40,10 @@ def get_geo_info(fqdn_or_ip):
         'country_code': '',
         'country_name': '',
     }
+    fqdn_or_ip = getattr(settings, 'GEOAWARE_DEBUG_DOMAIN_OR_IP', get_ip_address(request))
     if fqdn_or_ip:
-        geo = GeoIP()
+        cache_method = getattr(settings, "GEOIP_CACHE_METHOD", GeoIP.GEOIP_STANDARD)
+        geo = GeoIP(cache=cache_method)
         try:
             ginfo = geo.city(fqdn_or_ip)
             geo_info.update(ginfo)

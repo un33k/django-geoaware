@@ -21,7 +21,6 @@ def geoaware(request):
     }
     """
     cxt = {}
-    fqdn_or_ip = getattr(settings, 'DEBUG_DOMAIN_OR_IP', get_ip_address(request))
-    geo_info = get_geo_info(fqdn_or_ip)
+    geo_info = get_geo_info(request)
     cxt = {'geo_info': geo_info}
     return cxt

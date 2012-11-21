@@ -24,12 +24,12 @@ class GeoAwareSessionMiddleware(object):
 
     def process_request(self, request):
         """ Save or update geo info in session """
-        fqdn_or_ip = getattr(settings, 'DEBUG_DOMAIN_OR_IP', get_ip_address(request))
+        fqdn_or_ip = getattr(settings, 'GEOAWARE_DEBUG_DOMAIN_OR_IP', get_ip_address(request))
         try:
             if request.session['geo_info']['fqdn_or_ip'] == fqdn_or_ip:
                 return None
         except:
             pass
-        geo_info = get_geo_info(fqdn_or_ip)
+        geo_info = get_geo_info(request)
         request.session['geo_info'] = geo_info
         return None
