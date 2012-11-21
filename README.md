@@ -98,7 +98,7 @@ To access the GeoIP data:
     ```
 
     If some fields are not available they are left unpopulated.
-
+ 
 
 Running the tests
 =================
