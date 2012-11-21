@@ -135,7 +135,10 @@ To run the tests against the current environment:
 Changelog
 =========
 
-0.0.1
+0.2.0
+* added template tags (filters)
+
+0.1.0
 -----
 * initial release
 
