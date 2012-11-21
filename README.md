@@ -1,7 +1,7 @@
 Django GeoAware Application
 ====================
 
-A Django application that can include GeoIP info in the session and/or the context.
+A Django application that can include GeoIP related info in the session and/or the context of your application.
 
 **Author:** Val Neekman, [ info@neekware.com, @vneekman]
 
@@ -9,14 +9,17 @@ Overview
 ========
 
 Django GeoAware provides a middleware as well as a context processor for including
-GeoInfo into the session and/or the context.
+GeoIP related info in the session and/or the context of your application.
 
 How to install
 ==================
 
+    **Prerequisites:**
+    
     Please ensure that you have properly configured your system as per:
     https://docs.djangoproject.com/en/dev/ref/contrib/gis/geoip/
     
+    **Install**
     1. easy_install django-geoaware
     2. pip install django-geoaware
     3. git clone http://github.com/un33k/django-geoaware
@@ -30,7 +33,7 @@ How to install
 How to use
 =================
 
-    Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
+* Include 'geoware' in your INSTALLED_APPS somewhere after 'django.contrib.gis'.
     
     INSTALLED_APPS = [
         'some apps go here',
@@ -40,9 +43,9 @@ How to use
         'some other apps can go here',
     ]
  
-To include Geo Info in session:
+* To include GeoIP related info in the session:
     
-    Include geoaware middleware in your MIDDLEWARE_CLASSES after the session middleware
+    Include geoaware middleware in your MIDDLEWARE_CLASSES after the session middleware.
     
     MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
@@ -52,8 +55,10 @@ To include Geo Info in session:
     'some more middleware can go here',
     ] 
 
-    The GeoInfo would be available in request.session['geo_info']
-To include Geo Info in context:
+    The GeoIP related info would be available in request.session['geo_info']
+
+
+* To include GeoIP related info in the context:
     
     Include geoware context processor in your TEMPLATE_CONTEXT_PROCESSORS after 'django.core.context_processors.request'.
     
@@ -66,9 +71,9 @@ To include Geo Info in context:
         'some context processor can go here',
     ]
 
-    The data will be available in geo_info.
+    The GeoIP related info would be available in your context as geo_info.
 
-To access the geo data:
+* To access the GeoIP data:
 
    geo_info is a dictionary that includes the following:
    geo_info = {
@@ -86,7 +91,7 @@ To access the geo data:
         'country_code': '',
         'country_name': '',
     }
-    if some fields are not available they are left unpopulated.
+    If some fields are not available they are left unpopulated.
 
 
 Running the tests
