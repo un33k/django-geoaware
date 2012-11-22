@@ -135,6 +135,10 @@ To run the tests against the current environment:
 Changelog
 =========
 
+0.5.0 
+-----
+* default to GEOIP_MEMORY_CACHE = GEOIP_STANDARD if not provided
+
 0.4.0
 -----
 * allow auto tag inclusion if flag is set
