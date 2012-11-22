@@ -42,7 +42,7 @@ def get_geo_info(request):
     }
     fqdn_or_ip = getattr(settings, 'GEOAWARE_DEBUG_DOMAIN_OR_IP', get_ip_address(request))
     if fqdn_or_ip:
-        cache_method = getattr(settings, "GEOIP_CACHE_METHOD", GeoIP.GEOIP_STANDARD)
+        cache_method = getattr(settings, "GEOIP_CACHE_METHOD", GeoIP.GEOIP_INDEX_CACHE)
         geo = GeoIP(cache=cache_method)
         try:
             ginfo = geo.city(fqdn_or_ip)

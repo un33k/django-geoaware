@@ -32,4 +32,5 @@ class GeoAwareSessionMiddleware(object):
             pass
         geo_info = get_geo_info(request)
         request.session['geo_info'] = geo_info
+        request.session.modified = True
         return None

@@ -127,7 +127,7 @@ To run the tests against the current environment:
 
     python manage.py test geoaware # ToDo
 
-    Note: if you are running on localhost in DEBUG mode, then you can you can add to your settings.py 
+    Note: if you are running on localhost in DEBUG mode, then you can add to your settings.py 
           `GEOAWARE_DEBUG_DOMAIN_OR_IP = 'google.com'` OR `GEOAWARE_DEBUG_DOMAIN_OR_IP = 'some valid public ip'`. 
           This is for testing purposes ONLY.
 
@@ -135,7 +135,13 @@ To run the tests against the current environment:
 Changelog
 =========
 
+0.3.0
+-----
+* force cookie to be saved
+* changed default GeoIP caching option
+
 0.2.0
+-----
 * added template tags (filters)
 
 0.1.0
