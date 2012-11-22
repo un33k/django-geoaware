@@ -5,6 +5,7 @@ try:
     from django.contrib.gis.geoip import GeoIP
 except ImportError:
     from django.contrib.gis.utils import GeoIP
+import defaults
 
 # by no means this is a perfect IP regex
 IP_RE = re.compile('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}')
@@ -40,9 +41,9 @@ def get_geo_info(request):
         'country_code': '',
         'country_name': '',
     }
-    fqdn_or_ip = getattr(settings, 'GEOAWARE_DEBUG_DOMAIN_OR_IP', get_ip_address(request))
+    fqdn_or_ip = getattr(defaults, 'GEOIP_DEBUG_DOMAIN_OR_IP', get_ip_address(request))
     if fqdn_or_ip:
-        cache_method = getattr(settings, "GEOIP_CACHE_METHOD", GeoIP.GEOIP_INDEX_CACHE)
+        cache_method = getattr(defaults, 'GEOIP_CACHE_METHOD')
         geo = GeoIP(cache=cache_method)
         try:
             ginfo = geo.city(fqdn_or_ip)
