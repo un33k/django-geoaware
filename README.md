@@ -55,7 +55,7 @@ To include GeoIP related info in the session:
       'django.middleware.common.CommonMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'some middleware can go here',
-      'geoaware.middleware.GeoSessionMiddleware',
+      'geoaware.middleware.GeoAwareSessionMiddleware',
       'some more middleware can go here',
    ] 
    # The GeoIP related info would be available in request.session['geo_info']
@@ -104,7 +104,7 @@ To access the GoeIP data via template tags:
 The following filters are available for extracting specific GeoIP data in the templates.
 Requirement:  ``django.core.context_processors.request`` must be present in your `TEMPLATE_CONTEXT_PROCESSORS`.
 
-    {% load geoware %} # Or set `GEOIP_INCLUDE_TEMPLATE_TAGS = True` in your settings to auto include tags
+    {% load geoaware %} # Or set `GEOIP_INCLUDE_TEMPLATE_TAGS = True` in your settings to auto include tags
 
     {{ request|geo_country_name }}
     {{ request|geo_country_code }}
